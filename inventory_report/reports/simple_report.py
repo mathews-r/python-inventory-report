@@ -7,7 +7,7 @@ class SimpleReport:
         return (
             f"Data de fabricação mais antiga: {cls.get_data_fabri(data)}\n"
             f"Data de validade mais próxima: {cls.get_data_validade(data)}\n"
-            f"Empresa com mais produtos: {cls.get_nome_empresa(data)}"
+            f"Empresa com mais produtos: {cls.get_nome_empresa(data)[-1][0]}"
         )
 
     @classmethod
@@ -33,4 +33,4 @@ class SimpleReport:
                 empresas_dict[empresa["nome_da_empresa"]] += 1
             else:
                 empresas_dict[empresa["nome_da_empresa"]] = 1
-        return sorted(empresas_dict.items(), key=lambda item: item[1])[-1][0]
+        return sorted(empresas_dict.items(), key=lambda item: item[1])
