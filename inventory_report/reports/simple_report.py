@@ -5,13 +5,13 @@ class SimpleReport:
     @classmethod
     def generate(cls, data):
         return (
-            f"Data de fabricação mais antiga: {cls.get_data_fabricacao(data)}"
-            f"Data de validade mais próxima: {cls.get_data_validade(data)}"
+            f"Data de fabricação mais antiga: {cls.get_data_fabri(data)}\n"
+            f"Data de validade mais próxima: {cls.get_data_validade(data)}\n"
             f"Empresa com mais produtos: {cls.get_nome_empresa(data)}"
         )
 
     @classmethod
-    def get_data_fabricacao(cls, data):
+    def get_data_fabri(cls, data):
         data_fabricacao = []
         for fabricacao in data:
             data_fabricacao.append(fabricacao["data_de_fabricacao"])
@@ -27,18 +27,10 @@ class SimpleReport:
 
     @classmethod
     def get_nome_empresa(cls, data):
-        empresas_dict = {"nome_da_empresa": "", "contador": 0}
+        empresas_dict = {}
         for empresa in data:
-            print(empresas_dict)
-            if empresa["nome_da_empresa"] == empresas_dict["nome_da_empresa"]:
-                empresas_dict["contador"] += 1
+            if empresa["nome_da_empresa"] in empresas_dict:
+                empresas_dict[empresa["nome_da_empresa"]] += 1
             else:
-                empresas_dict["nome_da_empresa"] = empresa["nome_da_empresa"]
-                empresas_dict["contador"] = 0
-        return empresas_dict["nome_da_empresa"]
-
-    # @classmethod
-    # def get_contador(e):
-    #     return e["contador"]
-
-    # nome_empresa = [{"nome": "", "contador": 0}].sort(key=cls.get_contador)
+                empresas_dict[empresa["nome_da_empresa"]] = 1
+        return sorted(empresas_dict.items(), key=lambda item: item[1])[-1][0]
