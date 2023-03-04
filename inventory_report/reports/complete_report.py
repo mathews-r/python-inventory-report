@@ -8,16 +8,21 @@ class CompleteReport(SimpleReport):
         return (
             f"{super().generate(data)}\n"
             f"Produtos estocados por empresa:\n"
-            f"{cls.get_companies_by_products(data)}"
+            f"{cls.get_products_by_companies(data)}"
         )
 
     @classmethod
-    def get_companies_by_products(cls, data):
+    def get_companies(cls, data):
         companies_list = []
-        products_quantity = ""
 
         for company_name in data:
             companies_list.append(company_name["nome_da_empresa"])
+        return companies_list
+
+    @classmethod
+    def get_products_by_companies(cls, data):
+        products_quantity = ""
+        companies_list = cls.get_companies(data)
 
         products = Counter(companies_list)
         for company in companies_list:
