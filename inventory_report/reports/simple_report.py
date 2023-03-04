@@ -5,32 +5,32 @@ class SimpleReport:
     @classmethod
     def generate(cls, data):
         return (
-            f"Data de fabricação mais antiga: {cls.get_data_fabri(data)}\n"
-            f"Data de validade mais próxima: {cls.get_data_validade(data)}\n"
-            f"Empresa com mais produtos: {cls.get_nome_empresa(data)[-1][0]}"
+            f"Data de fabricação mais antiga: {cls.get_manufac_date(data)}\n"
+            f"Data de validade mais próxima: {cls.get_expiration_date(data)}\n"
+            f"Empresa com mais produtos: {cls.get_company_name(data)[-1][0]}"
         )
 
     @classmethod
-    def get_data_fabri(cls, data):
-        data_fabricacao = []
-        for fabricacao in data:
-            data_fabricacao.append(fabricacao["data_de_fabricacao"])
-        return min(data_fabricacao)
+    def get_manufac_date(cls, data):
+        manufacturing_date = []
+        for manufacturing in data:
+            manufacturing_date.append(manufacturing["data_de_fabricacao"])
+        return min(manufacturing_date)
 
     @classmethod
-    def get_data_validade(cls, data):
-        data_validade = []
-        for fabricacao in data:
-            if fabricacao["data_de_validade"] > str(datetime.today().date()):
-                data_validade.append(fabricacao["data_de_validade"])
-        return min(data_validade)
+    def get_expiration_date(cls, data):
+        expiration_date = []
+        for manufact in data:
+            if manufact["data_de_validade"] > str(datetime.today().date()):
+                expiration_date.append(manufact["data_de_validade"])
+        return min(expiration_date)
 
     @classmethod
-    def get_nome_empresa(cls, data):
-        empresas_dict = {}
-        for empresa in data:
-            if empresa["nome_da_empresa"] in empresas_dict:
-                empresas_dict[empresa["nome_da_empresa"]] += 1
+    def get_company_name(cls, data):
+        companies_dict = {}
+        for company in data:
+            if company["nome_da_empresa"] in companies_dict:
+                companies_dict[company["nome_da_empresa"]] += 1
             else:
-                empresas_dict[empresa["nome_da_empresa"]] = 1
-        return sorted(empresas_dict.items(), key=lambda item: item[1])
+                companies_dict[company["nome_da_empresa"]] = 1
+        return sorted(companies_dict.items(), key=lambda item: item[1])
