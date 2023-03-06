@@ -24,7 +24,7 @@ class CompleteReport(SimpleReport):
         products_quantity = ""
         companies_list = cls.get_companies(data)
 
-        products = Counter(companies_list)
-        for company in companies_list:
-            products_quantity += f"- {company}: {products[company]}\n"
+        products = Counter(companies_list).items()
+        for company, quantity in products:
+            products_quantity += f"- {company}: {quantity}\n"
         return products_quantity
