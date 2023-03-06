@@ -2,13 +2,12 @@ from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 import csv
 import json
-import xml.etree.ElementTree as ET
+import xmltodict
 
 
 class Inventory:
     @classmethod
     def import_data(cls, path, type):
-        report = ""
         if ".csv" in path:
             report = cls.read_csv(path)
         elif ".json" in path:
@@ -35,9 +34,11 @@ class Inventory:
 
     @classmethod
     def read_xml(cls, path):
-        data = ET.parse(path).getroot()
+        data = open(path, "r")
+        xml_content = data.read()
+        my_ordered_dict = xmltodict.parse(xml_content)
 
-        print(ET.tostring(data))
+        return my_ordered_dict["dataset"]["record"]
 
     @classmethod
     def report_simple_or_complete(cls, report, type):
