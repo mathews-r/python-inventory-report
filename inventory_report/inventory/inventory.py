@@ -13,13 +13,10 @@ class Inventory:
             report = cls.read_csv(path)
         elif "json" in path:
             report = cls.read_json(path)
-        elif "xml" in path:
+        else:
             report = cls.read_xml(path)
 
-        if type == "simples":
-            return SimpleReport.generate(report)
-        else:
-            return CompleteReport.generate(report)
+        return cls.report_simple_or_complete(report, type)
 
     @classmethod
     def read_csv(cls, path):
@@ -41,3 +38,10 @@ class Inventory:
         with open(path, mode="r", encoding="utf-8") as file:
             xml = ET.parse(file)
         return xml
+
+    @classmethod
+    def report_simple_or_complete(cls, report, type):
+        if type == "simples":
+            return SimpleReport.generate(report)
+        else:
+            return CompleteReport.generate(report)
