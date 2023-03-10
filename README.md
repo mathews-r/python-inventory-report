@@ -1,13 +1,60 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+# :office: Job Insights
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+
+Neste projeto utilizei a Programação Orientada a Objetos! Implementei um gerador de relatórios que recebe como entrada arquivos com dados de um estoque e gera, como saída, um relatório acerca destes dados.
+
+Esses dados de estoque poderão ser obtidos de diversas fontes:
+
+    Através da importação de um arquivo CSV;
+
+    Através da importação de um arquivo JSON;
+
+    Através da importação de um arquivo XML.
+
+Além disso, o relatório final possuirá duas versões: simples e completa.
+
+
+## ⚙️ Habilidades trabalhadas
+
+✅ Aplicar conceitos de Orientação a Objetos em Python;
+
+✅ Aplicar padrões de projeto;
+
+✅ Leitura e escrita de arquivos (XML, CSV, JSON).
+
+
+## :hammer_and_wrench: Ferramentas 
+### 🍮 BackEnd
+- Python;
+- PyTest;
+- DOCKER;
+- OOP;
+- Padrão Strategy;
+
+# Orientações
+
+- *Clonar o repositório:*
+
+```
+$ git clone git@github.com:mathews-r/inventory-report.git
+```
+
+- *Acessar o projeto inventory-report:*
+
+```
+$ cd inventory-report
+```
+
+
+- *Para testar a aplicação:*
+```
+Utilizar o comando do pytest:
+
+python3 -m pytest
+
+```
+
+## 👨‍💻 Desenvolvedor
+
+- [Mathews Rodrigues](https://www.linkedin.com/in/mathewsrodrigues/)
