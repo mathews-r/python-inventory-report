@@ -1,5 +1,5 @@
 
-# :office: Job Insights
+# :office: Inventory Reports
 
 
 Neste projeto utilizei a Programação Orientada a Objetos! Implementei um gerador de relatórios que recebe como entrada arquivos com dados de um estoque e gera, como saída, um relatório acerca destes dados.
