@@ -45,7 +45,17 @@ $ git clone git@github.com:mathews-r/inventory-report.git
 ```
 $ cd inventory-report
 ```
+- *Criar o ambiente de virtual:*
 
+```
+$ python3 -m venv .venv && source .venv/bin/activate
+```
+
+- *Instalar as dependências:*
+
+```
+$ python3 -m pip install -r dev-requirements.txt
+```
 
 - *Para testar a aplicação:*
 ```
